@@ -1,0 +1,1 @@
+#  Repositório dedicado ao trabalho final da disciplina de Sistemas ditribuidos referente ao semenste 2023.1
