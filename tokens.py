@@ -1,2 +1,0 @@
-token_chatGPT = "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"
-token_telegramBot = "6196110344:AAHmhS4iXHeRO73hdElgjVQyVU_r2gSJYLo"
