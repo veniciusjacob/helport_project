@@ -15,23 +15,23 @@ context = {}  # Dicionário para armazenar o contexto
 def get_previous_response(chat_id, message):
     if chat_id in context:
         previous_context = context[chat_id]
-        context[chat_id] += message  # Atualiza o context anterior com a nova mensagem
     else:
         previous_context = ""
-        context[chat_id] = message
 
-    resposta = response(previous_context + message)  # Gera a resposta com base no contexto
+    context[chat_id] = previous_context + " " + message  # Atualiza o contexto com a nova mensagem
+
+    resposta = response(context[chat_id])  # Gera a resposta com base no contexto atualizado
 
     return resposta
 
+
 @bot.message_handler(commands=['start'])
 def handle_start(message):
-    bot.send_message(message.chat.id, "Olá, como posso ajudar? Para ver o menu de comandos digite '/help'")
+    bot.send_message(message.chat.id, "Olá, bem vindo ao Helport, como posso ajudar? Para ver o menu de comandos digite '/help'")
 
 @bot.message_handler(commands=['help'])
 def handle_help(message):
     commands = [
-        "/start - Iniciar a conversa",
         "/help - Exibir esta mensagem de ajuda",
         "/clear - Limpar o contexto da conversa"
     ]
@@ -53,6 +53,7 @@ def handle_message(message):
     msg = bot.send_message(message.chat.id, "Escrevendo...")
     print("Usuário:", message.text)
     resposta = get_previous_response(message.chat.id, message.text)
+    context[message.chat.id] = ""  # Limpa o contexto anterior após gerar a resposta
     bot.edit_message_text(resposta, message.chat.id, msg.message_id)
     print("ChatGPT:", resposta)
 
