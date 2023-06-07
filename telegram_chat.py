@@ -4,27 +4,6 @@ from dotenv import load_dotenv
 import time
 from openai_API import response
 
-load_dotenv()
-
-telegram_token = os.getenv('TELEGRAM_TOKEN')
-bot = telebot.TeleBot(telegram_token, parse_mode=None)
-
-import telebot
-import os
-from dotenv import load_dotenv
-import time
-from openai_API import response
-
-load_dotenv()
-
-telegram_token = os.getenv('TELEGRAM_TOKEN')
-bot = telebot.TeleBot(telegram_token, parse_mode=None)
-
-import telebot
-import os
-from dotenv import load_dotenv
-import time
-from openai_API import response
 
 load_dotenv()
 
