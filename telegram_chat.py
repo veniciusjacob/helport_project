@@ -10,17 +10,17 @@ load_dotenv()
 telegram_token = os.getenv('TELEGRAM_TOKEN')
 bot = telebot.TeleBot(telegram_token, parse_mode=None)
 
-context = {}  # Dicionário para armazenar o contexto por chat_id
+context = {}  # Dicionário para armazenar o contexto
 
-def get_previous_response(chat_id, mensagem):
+def get_previous_response(chat_id, message):
     if chat_id in context:
         previous_context = context[chat_id]
-        context[chat_id] += mensagem  # Atualiza o context anterior com a nova mensagem
+        context[chat_id] += message  # Atualiza o context anterior com a nova mensagem
     else:
         previous_context = ""
-        context[chat_id] = mensagem
+        context[chat_id] = message
 
-    resposta = response(previous_context + mensagem)  # Gera a resposta com base no contexto
+    resposta = response(previous_context + message)  # Gera a resposta com base no contexto
 
     return resposta
 
@@ -49,14 +49,24 @@ def handle_clear(message):
         bot.send_message(chat_id, "Não há contexto para limpar.")
 
 @bot.message_handler(content_types=['text'])
-def start(message):
-    start = message.text
-    if start == '/start':
-        bot.send_message(message.chat.id, "Olá, como posso ajudar?")
-    else:
-        
-        msg = bot.send_message(message.chat.id, "Escrevendo...")
-        print("Usuário:", message.text)
-        resposta = get_previous_response(message.chat.id, message.text)
-        bot.edit_message_text(resposta, message.chat.id, msg.message_id)
-        print("ChatGPT:", resposta)
+def handle_message(message):
+    msg = bot.send_message(message.chat.id, "Escrevendo...")
+    print("Usuário:", message.text)
+    resposta = get_previous_response(message.chat.id, message.text)
+    bot.edit_message_text(resposta, message.chat.id, msg.message_id)
+    print("ChatGPT:", resposta)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
