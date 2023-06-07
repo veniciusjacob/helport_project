@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv
 import time
 from openai_API import response
+import string
 
 
 load_dotenv()
@@ -18,9 +19,9 @@ def get_previous_response(chat_id, message):
     else:
         previous_context = ""
 
-    context[chat_id] = previous_context + " " + message  # Atualiza o contexto com a nova mensagem
+    resposta = response(previous_context + " " + message)  # Gera a resposta com base no contexto anterior e na nova mensagem
 
-    resposta = response(context[chat_id])  # Gera a resposta com base no contexto atualizado
+    context[chat_id] = resposta  # Armazena a resposta atual como o novo contexto
 
     return resposta
 
@@ -53,21 +54,7 @@ def handle_message(message):
     msg = bot.send_message(message.chat.id, "Escrevendo...")
     print("Usuário:", message.text)
     resposta = get_previous_response(message.chat.id, message.text)
-    context[message.chat.id] = ""  # Limpa o contexto anterior após gerar a resposta
+    resposta = resposta.strip(string.punctuation)  # Remova os caracteres de pontuação indesejados
     bot.edit_message_text(resposta, message.chat.id, msg.message_id)
     print("ChatGPT:", resposta)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
