@@ -2,7 +2,7 @@
 
 ![Logo Helport](/Materiais/Logo_Helport.png)
 
-## Microserviços Utilizados:
+## Microserviços Implementados:
 
 ### API Chat GPT
 
