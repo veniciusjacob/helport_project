@@ -1,5 +1,7 @@
 import openai
 
+#adiconar token aqui
+
 openai.api_key = 'token_aqui'
 
 def generate_response(input_text):
