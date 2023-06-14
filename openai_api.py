@@ -1,6 +1,6 @@
 import openai
 
-openai.api_key = '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'
+openai.api_key = 'token_aqui'
 
 def generate_response(input_text):
     response = openai.Completion.create(
