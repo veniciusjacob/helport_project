@@ -1,4 +1,7 @@
- ter o docker instalado na máquina.
+Pré-requisitos: 
+-Ter o docker instalado na máquina;
+-Substituir o token open ai no arquivo openai_api.py;
+-Substituir o token do bot do telegram no arquivo telegram_bot.py.
 
 Para criar e executar o seu contêiner Docker, você precisa executar os seguintes comandos no terminal:
 
