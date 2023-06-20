@@ -1,21 +1,17 @@
-sudo docker images - ver todas images
-
-sudo docker rmi -f <ID> - para remover uma image
+sudo docker images - para ver todas images
 
 sudo docker stop $(sudo docker ps -q) - para parar todos containers em execução
+
+sudo docker rmi -f <ID> - para remover uma imagem
 
 sudo docker ps - listar todos os contêineres Docker no seu sistema em execução
 
 sudo docker ps -a - listar todos os contêineres Docker no seu sistema, incluindo os parados
 
-sudo docker container prune -  permite que você remova todos os contêineres parados com um único comando.
+sudo sudo docker rm <ID> - para remover o cotainer
 
+sudo docker container prune -  permite que você remova todos os contêineres parados com um único comando.
 
 sudo docker logs <nome_container> - Isso exibirá os logs de saída do contêiner
 
 docker exec -it nome_contêiner /bin/bash - comando para acessar o terminal interativo dentro do contêiner:
-
-
-
-
-
