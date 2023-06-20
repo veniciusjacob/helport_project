@@ -14,8 +14,7 @@ def start(message):
     welcome_message = "Bem-vindo ao Helport! Como posso ajudar você?"
 
     bot.reply_to(message, welcome_message)
-
-@bot.message_handler(func=lambda message: True)
+    
 @bot.message_handler(func=lambda message: True)
 def responder_mensagem(message):
     if message.from_user is not None:
