@@ -9,11 +9,11 @@ Para criar e executar o seu contêiner Docker, você precisa executar os seguint
 
 2. Execute o comando a seguir para construir a imagem Docker:
 
-docker build -t nome_imagem .
+sudo docker build -t nome_imagem .
 
 3. Após a construção bem-sucedida da imagem, você pode criar e executar o contêiner com o comando abaixo:
 
-docker run -d -p 8443:8443 --name nome_que_sera_dado_ao_contêiner nome_imagem
+sudo docker run -d -p 8443:8443 --name nome_que_sera_dado_ao_contêiner nome_imagem_criada
 
 
 Após executar esses comandos, o contêiner será criado e iniciado.
