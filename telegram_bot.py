@@ -1,8 +1,11 @@
 import telebot
 import openai_api
 import support_database
+import nltk
 
-telegram_token = 'token_aqui'
+nltk.download('punkt')
+
+telegram_token = '6196110344:AAHmhS4iXHeRO73hdElgjVQyVU_r2gSJYLo'
 bot = telebot.TeleBot(telegram_token)
 
 @bot.message_handler(commands=['start'])

@@ -4,7 +4,12 @@ from nltk.stem import PorterStemmer
 
 def search_database(query):
     # Conexão com o banco de dados
-    conn = sqlite3.connect('support_database.db')
+    import os
+
+    db_path = os.path.join(os.path.dirname(__file__), 'database', 'support_database.db')
+    conn = sqlite3.connect(db_path)
+
+
     cursor = conn.cursor()
 
     # Tokenização e stemming da consulta
@@ -36,7 +41,11 @@ def search_database(query):
 
 def add_to_database(input_text, response):
     # Conexão com o banco de dados
-    conn = sqlite3.connect('support_database.db')
+    import os
+
+    db_path = os.path.join(os.path.dirname(__file__), 'database', 'support_database.db')
+    conn = sqlite3.connect(db_path)
+
     cursor = conn.cursor()
 
     # Inserção da entrada e resposta no banco de dados

@@ -2,7 +2,7 @@ import openai
 
 #adiconar token aqui
 
-openai.api_key = 'token_aqui'
+openai.api_key = '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'
 
 def generate_response(input_text):
     response = openai.Completion.create(

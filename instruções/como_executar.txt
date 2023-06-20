@@ -1,0 +1,22 @@
+ ter o docker instalado na máquina.
+
+Para criar e executar o seu contêiner Docker, você precisa executar os seguintes comandos no terminal:
+
+1. Navegue até o diretório que contém o arquivo Dockerfile e os outros arquivos do projeto.
+
+2. Execute o comando a seguir para construir a imagem Docker:
+
+docker build -t nome_imagem .
+
+3. Após a construção bem-sucedida da imagem, você pode criar e executar o contêiner com o comando abaixo:
+
+docker run -d -p 8443:8443 --name nome_que_sera_dado_ao_contêiner nome_imagem
+
+
+Após executar esses comandos, o contêiner será criado e iniciado.
+
+> Para visualizar as imagens disponíveis: "sudo docker images"
+> Para listar todos os contêineres Docker em execução: "sudo docker ps"
+> Para visualizar os logs da execução do container: "sudo docker logs <nome_conteiner>"
+> Para acessar o terminal interativo dentro do contêiner: "sudo docker exec -it nome_conteiner /bin/bash"
+
