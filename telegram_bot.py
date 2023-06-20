@@ -5,7 +5,7 @@ import nltk
 
 nltk.download('punkt')
 
-telegram_token = '6196110344:AAHmhS4iXHeRO73hdElgjVQyVU_r2gSJYLo'
+telegram_token = 'token_here'
 bot = telebot.TeleBot(telegram_token)
 
 @bot.message_handler(commands=['start'])
